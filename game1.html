@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Угадай число </title>
+
+	<meta charset='utf-8'>
+	<title>Угадайка!</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header">
+		<a href="site.html">Главная</a><span>/</span>
+		<a href="zag.html">Загадки</a><span>/</span>
+		<a href="game1.html">Угадайка</a><span>/</span>
+		<a href="#">Угадайка мультиплеер</a><span>/</span>
+	</div>
+<script>
+	var min=1;
+	var max=100;
+	var guessNumber=Math.floor(Math.random()*(max-min+1))+min;
+	document.write("Компьютер загадал число от "+min+"до"+max+".Угадайте его за 7 попыток<br>");
+	var tryCount=0;
+	var tryCount2=0;
+	var userAnswer;
+	var userAnswer2;
+	do
+	{
+	tryCount=tryCount+1;
+	tryCount2=tryCount2+1;
+
+	userAnswer=+prompt("Первый игрок "+tryCount+"попытка. Ваш вариант:");
+	document.write(tryCount+" - "+userAnswer+" <br>");
+	
+	userAnswer2=+prompt("Второй игрок "+tryCount2+" попытка. Ваш вариант:");
+	document.write(tryCount2+" - "+userAnswer2+" <br>");
+
+	if(userAnswer>guessNumber)
+	document.write("<b> Первый игрок - перелёт</b><br>");
+	if(userAnswer<guessNumber)
+	document.write("<strong>Первый игрок - недолёт</strong><br>");
+
+	if(userAnswer2>guessNumber)
+	document.write("<b>Второй игрок - перелёт</b><br>");
+	if(userAnswer2<guessNumber)
+	document.write("<strong>Второй игрок - недолёт</strong><br>");
+
+	}
+	while((userAnswer!=guessNumber&&tryCount<7)&&(userAnswer2!=guessNumber&&tryCount2<7));
+
+	if(userAnswer==guessNumber)document.write("<victory>Поздравляем первый игрок!Вы угадали!</victory><br>");
+     	else document.write("<loss> Первый, Вы проиграли!Попробуйте еще раз</loss><br>");
+	
+	if(userAnswer2==guessNumber)document.write("<victory>Поздравляем второй игрок!Вы угадали!</victory><br>");
+    	else document.write("<loss>Второй, Вы проиграли!Попробуйте еще раз</loss><br>");
+
+</script>
+</body>
+</html>

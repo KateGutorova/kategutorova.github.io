@@ -1,0 +1,56 @@
+﻿<script>
+function checkAnswer(id, trueAnswer)
+{
+	var userAnswer=document.getElementById(id).value;
+	if (userAnswer==trueAnswer)
+	return true;
+	else
+	return false;
+}
+function checkAnswers()
+{
+	var goodAnswers = 0;
+	if (checkAnswer("puzzle1","ножницы")) goodAnswers++;
+	if (checkAnswer("puzzle2","дикобраз")) goodAnswers++;
+	if (checkAnswer("puzzle3","жираф")) goodAnswers++;
+	if (checkAnswer("puzzle4","зебра")) goodAnswers++;
+
+	if (goodAnswers==0)
+		alert("Вы не отгадали ни одной загадки. Попробуйте ещё раз");
+	else
+		alert("Правильных ответов: "+goodAnswers);
+}
+</script>
+<head>
+	<meta charset='utf-8'>
+	<title>Отгадай загадки!</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header">
+		<a href="site.html">Главная</a><span>/</span>
+		<a href="zag.html">Загадки</a><span>/</span>
+		<a href="game1.html">Угадайка</a><span>/</span>
+		<a href="#">Угадайка мультиплеер</a><span>/</span>
+	</div>
+<h3> Отгадай загадки! </h3>
+	<p>Два кольца, два конца, посередине гвоздик?</p>
+	<input type="text" id=puzzle1>
+</br></br></br>
+	<p>Ёжик вырос в десять раз, получился...</p>
+	<input type="text" id=puzzle2>
+</br></br></br>
+	<p>Какое животное самое кравсивое, самое высокое, самое длинное?</p>
+	<input type="text" id=puzzle3>
+</br></br></br>
+	<p>Надели коняшки морские рубашки?</p>
+	<input type="text" id=puzzle4>
+</br></br></br>
+
+
+
+
+
+<input type="button" value="Ответить" onClick="checkAnswers()"/>
+
+</body>
